@@ -1,0 +1,2 @@
+from .rareUser import RareUser
+
