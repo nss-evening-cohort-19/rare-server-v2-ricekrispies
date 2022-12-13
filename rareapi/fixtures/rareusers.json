@@ -1,0 +1,58 @@
+[
+    {
+        "model": "rareapi.rareUser",
+        "pk": 1,
+        "fields": {
+            "first_name": "Jessica",
+            "last_name": "Morrison",
+            "bio": "A comprehensive Bio",
+            "email": "jnicomorr@gmail.com",
+            "created_on": "2022-12-12",
+            "active": true,
+            "is_staff": true,
+            "profile_image_url": ""
+        }
+    },
+    {
+        "model": "rareapi.rareUser",
+        "pk": 2,
+        "fields": {
+            "first_name": "Christian",
+            "last_name": "Black",
+            "bio": "A comprehensive Bio",
+            "email": "blackcl3@gmail.com",
+            "created_on": "2022-12-12",
+            "active": true,
+            "is_staff": true,
+            "profile_image_url": ""
+        }
+    },
+    {
+        "model": "rareapi.rareUser",
+        "pk": 3,
+        "fields": {
+            "first_name": "Krima",
+            "last_name": "Patel",
+            "bio": "A comprehensive Bio",
+            "email": "patel.krima15@gmail.com",
+            "created_on": "2022-12-12",
+            "active": true,
+            "is_staff": true,
+            "profile_image_url": ""
+        }
+    },
+    {
+        "model": "rareapi.rareUser",
+        "pk": 4,
+        "fields": {
+            "first_name": "Keaton",
+            "last_name": "Law",
+            "bio": "A comprehensive Bio",
+            "email": "keaton.c.law@gmail.com",
+            "created_on": "2022-12-12",
+            "active": true,
+            "is_staff": true,
+            "profile_image_url": ""
+        }
+    }
+]
