@@ -1,0 +1,46 @@
+[
+    {
+        "model": "rareapi.post",
+        "pk": 1,
+        "fields": {
+            "user_id": 1,
+            "title": "ONE",
+            "publication_date": "2022-12-12",
+            "content": "THE FIRST POST",
+            "approved": true
+        }
+    },
+    {
+        "model": "rareapi.post",
+        "pk": 2,
+        "fields": {
+            "user_id": 2,
+            "title": "TWO",
+            "publication_date":"2022-12-12",
+            "content": "THE SECOND POST",
+            "approved": true
+        }
+    },
+    {
+        "model": "rareapi.post",
+        "pk": 3,
+        "fields": {
+            "user_id": 3,
+            "title": "THREE",
+            "publication_date":"2022-12-12",
+            "content": "THE THIRD POST",
+            "approved": true
+        }
+    },
+    {
+        "model":"rareapi.post",
+        "pk": 4,
+        "fields": {
+            "user_id": 4,
+            "title": "FOUR",
+            "publication_date":"2022-12-12",
+            "content": "THE FOURTH POST",
+            "approved": false
+        }
+    }
+]
