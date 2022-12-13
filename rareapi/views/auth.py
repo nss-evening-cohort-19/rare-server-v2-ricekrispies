@@ -1,4 +1,4 @@
-from levelupapi.models import Gamer
+from rareapi.models import RareUser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -14,14 +14,21 @@ def check_user(request):
 
     # Use the built-in authenticate method to verify
     # authenticate returns the user object or None if no user is found
-    gamer = Gamer.objects.filter(uid=uid).first()
+    rare_user = RareUser.objects.filter(uid=uid).first()
 
     # If authentication was successful, respond with their token
-    if gamer is not None:
+    if rare_user is not None:
         data = {
-            'id': gamer.id,
-            'uid': gamer.uid,
-            'bio': gamer.bio
+            'id': rare_user.id,
+            'first_name': rare_user.first_name,
+            'last_name': rare_user.last_name,
+            'bio': rare_user.bio,
+            'email': rare_user.email,
+            'created_on': rare_user.created_on,
+            'active': rare_user.active,
+            'is_staff': rare_user.is_staff,
+            'profile_image_url': rare_user.profile_image_url,
+            'uid': rare_user.uid,
         }
         return Response(data)
     else:
@@ -39,15 +46,29 @@ def register_user(request):
     '''
 
     # Now save the user info in the levelupapi_gamer table
-    gamer = Gamer.objects.create(
+    rare_user = RareUser.objects.create(
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name'],
         bio=request.data['bio'],
+        email=request.data['email'],
+        created_on=request.data['created_on'],
+        active=request.data['active'],
+        is_staff=request.data['is_staff'],
+        profile_image_url=request.data['profile_image_url'],
         uid=request.data['uid']
     )
 
     # Return the gamer info to the client
     data = {
-        'id': gamer.id,
-        'uid': gamer.uid,
-        'bio': gamer.bio
+        'id': rare_user.id,
+        'first_name': rare_user.first_name,
+        'last_name': rare_user.last_name,
+        'bio': rare_user.bio,
+        'email': rare_user.email,
+        'created_on': rare_user.created_on,
+        'active': rare_user.active,
+        'is_staff': rare_user.is_staff,
+        'profile_image_url': rare_user.profile_image_url,
+        'uid': rare_user.uid,
     }
     return Response(data)
