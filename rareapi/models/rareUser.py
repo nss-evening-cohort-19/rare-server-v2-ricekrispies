@@ -8,5 +8,4 @@ class RareUser(models.Model):
     created_on = models.DateField()
     active = models.BooleanField()
     is_staff = models.BooleanField()
-    profile_image_url = models.ImageField('profileimages', height_field=None,
-        width_field=None, max_length=None, null=True)
+    profile_image_url = models.CharField(max_length=200)
