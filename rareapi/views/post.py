@@ -25,7 +25,7 @@ class PostView(ViewSet):
         posts = Post.objects.all()
         uid = request.query_params.get('type', None)
         if uid is not None:
-          posts = posts.filter(user_id=uid)
+            posts = posts.filter(user_id=uid)
         serializer = PostSerializer(posts, many = True)
         return Response(serializer.data)
 
