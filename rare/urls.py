@@ -19,11 +19,11 @@ from rareapi.views import register_user, check_user
 from django.conf.urls import include
 from rest_framework import routers
 from rareapi.views import PostView
-from rareapi.views import DemotionView
+from rareapi.views import UserChangeView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'posts', PostView, 'posts')
-router.register(r'demotion', DemotionView, 'demotion')
+router.register(r'demotion', UserChangeView, 'demotion')
 
 urlpatterns = [
     path('register', register_user),

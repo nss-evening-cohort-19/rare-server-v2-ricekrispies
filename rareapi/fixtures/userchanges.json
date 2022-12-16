@@ -1,11 +1,11 @@
 [
     {
-        "model": "rareapi.demotion",
+        "model": "rareapi.UserChange",
         "pk": 1,
         "fields": {
             "action": "kill",
             "admin": 1,
-            "approval": 2,
+            "second_admin": 2,
             "modified_user": 3
         }
     }
