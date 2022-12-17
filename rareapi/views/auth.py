@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 @api_view(['POST'])
 def check_user(request):
-    '''Checks to see if User has Associated Gamer
+    '''Checks to see if User has associated Profile
 
     Method arguments:
       request -- The full HTTP request object

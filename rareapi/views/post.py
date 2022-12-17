@@ -3,10 +3,13 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from rareapi.models import Post, RareUser
+from rest_framework.permissions import AllowAny, IsAdminUser
+
 
 class PostView(ViewSet):
   
     def retrieve(self, request, pk):
+        permission_classes = [AllowAny,]
         """Handle GET requests for single post
 
         Returns:
@@ -17,6 +20,7 @@ class PostView(ViewSet):
         return Response(serializer.data)
       
     def list(self, request):
+        permission_classes = [IsAdminUser,]
         """Handle GET requests to get all posts
 
         Returns:
