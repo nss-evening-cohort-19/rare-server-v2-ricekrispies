@@ -28,25 +28,6 @@ class RareUserView(ViewSet):
         rare_users = RareUser.objects.all()
         serializer = RareUserSerializer(rare_users, many=True)
         return Response(serializer.data)
-    
-    @action(methods=['post'], detail=True)
-    def active(self, request, pk):
-        """"Post Request for a user to become active"""
-        rareuser = RareUser.objects.get(pk=request.data["id"], active=request.data["True"])
-        ActiveRareUser.objects.create(
-            activerareuser = rareuser
-        )
-        return Response({'message': 'Active User'}, status=status.HTTP_201_CREATED)
-    
-    @action(methods=['delete'], detail=True)
-    def notactive(self, request, pk):
-        """Delete request for a user to become inactive"""
-        rareuser = RareUser.objects.get(pk=request.data["id"], active=request.data["True"])
-        activeUser = ActiveRareUser.objects.filter(
-            activerareuser = rareuser
-        )
-        activeUser.delete()
-        return Response({'message': 'User deactivated'}, status=status.HTTP_204_NO_CONTENT)
       
 class RareUserSerializer(serializers.ModelSerializer):
     """JSON serializer for rare users"""
