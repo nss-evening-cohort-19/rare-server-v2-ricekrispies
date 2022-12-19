@@ -1,0 +1,12 @@
+[
+    {
+        "model": "rareapi.UserChange",
+        "pk": 1,
+        "fields": {
+            "action": "kill",
+            "admin": 1,
+            "second_admin": 2,
+            "modified_user": 3
+        }
+    }
+]
