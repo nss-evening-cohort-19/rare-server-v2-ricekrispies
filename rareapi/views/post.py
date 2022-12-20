@@ -41,15 +41,24 @@ class PostView(ViewSet):
         """
         rareUser = RareUser.objects.get(uid=request.data["uid"])
 
-
-        post = Post.objects.create(
-        title=request.data["title"],
-        publication_date=request.data["publication_date"],
-        content=request.data["content"],
-        approved=request.data["approved"],
-        image_url=request.data["image_url"],
-        user=rareUser
-        )
+        if rareUser.is_staff == True:
+            post = Post.objects.create(
+            title=request.data["title"],
+            publication_date=request.data["publication_date"],
+            content=request.data["content"],
+            approved=True,
+            image_url=request.data["image_url"],
+            user=rareUser
+            )
+        else:
+            post = Post.objects.create(
+            title=request.data["title"],
+            publication_date=request.data["publication_date"],
+            content=request.data["content"],
+            approved=False,
+            image_url=request.data["image_url"],
+            user=rareUser
+            )
         serializer = PostSerializer(post)
         return Response(serializer.data)
 
