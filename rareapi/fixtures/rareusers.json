@@ -58,5 +58,20 @@
             "is_staff": true,
             "profile_image_url": ""
         }
+    }, 
+    {
+        "model": "rareapi.rareUser",
+        "pk": 5,
+        "fields": {
+            "first_name": "Stumple",
+            "last_name": "Beans",
+            "uid": "JRbbQ0g7RXPJcBoNpQXTR418EaT2",
+            "bio": "Stumple is an American economist and the Charles R. Walgreen Distinguished Service Professor of Behavioral Science and Economics at the University of Chicago Booth School of Business. ",
+            "email": "stumplebeans@gmail.com",
+            "created_on": "2022-12-12",
+            "active": true,
+            "is_staff": false,
+            "profile_image_url": ""
+        }
     }
 ]

@@ -16,6 +16,11 @@ class RareUserView(ViewSet):
             Response -- JSON serialized user
         """
         rare_user = RareUser.objects.get(pk=pk)
+        uid = request.META['HTTP_AUTHORIZATION']
+        auth_user = RareUser.objects.get(uid=uid)
+        if auth_user.is_staff == False:
+            return Response(None, status=status.HTTP_403_FORBIDDEN)
+        
         serializer = RareUserSerializer(rare_user)
         return Response(serializer.data)
 
@@ -27,6 +32,10 @@ class RareUserView(ViewSet):
             Response -- JSON serialized list of users
         """
         rare_users = RareUser.objects.all()
+        uid = request.META['HTTP_AUTHORIZATION']
+        auth_user = RareUser.objects.get(uid=uid)
+        if auth_user.is_staff == False:
+            return Response(None, status=status.HTTP_403_FORBIDDEN)
         serializer = RareUserSerializer(rare_users, many=True)
         return Response(serializer.data)
 
