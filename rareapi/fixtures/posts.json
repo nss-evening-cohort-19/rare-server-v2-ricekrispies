@@ -6,6 +6,7 @@
             "user": 1,
             "title": "ONE",
             "publication_date": "2022-12-12",
+            "image_url" :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3vbWkAZQ6XSqodaKVoab4eb3ciugJM__0sw&usqp=CAU",
             "content": "THE FIRST POST",
             "approved": true
         }
@@ -17,6 +18,7 @@
             "user": 2,
             "title": "TWO",
             "publication_date":"2022-12-12",
+            "image_url" :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3vbWkAZQ6XSqodaKVoab4eb3ciugJM__0sw&usqp=CAU",
             "content": "THE SECOND POST",
             "approved": true
         }
@@ -28,6 +30,7 @@
             "user": 3,
             "title": "THREE",
             "publication_date":"2022-12-12",
+            "image_url" :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3vbWkAZQ6XSqodaKVoab4eb3ciugJM__0sw&usqp=CAU",
             "content": "THE THIRD POST",
             "approved": true
         }
@@ -39,6 +42,7 @@
             "user": 4,
             "title": "FOUR",
             "publication_date":"2022-12-12",
+            "image_url" :"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3vbWkAZQ6XSqodaKVoab4eb3ciugJM__0sw&usqp=CAU",
             "content": "THE FOURTH POST",
             "approved": false
         }
