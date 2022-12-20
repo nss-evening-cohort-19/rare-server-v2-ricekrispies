@@ -20,12 +20,14 @@ class PostView(ViewSet):
         serializer = PostSerializer(post)
         return Response(serializer.data)
 
-    def list(self, request, pk):
+    def list(self, request):
         """Handle GET requests to get all posts
 
         Returns:
             Response -- JSON serialized list of posts
         """
+        
+        uid = request.META['HTTP_AUTHORIZATION']        
         rare_user = RareUser.objects.get(uid=uid)
         posts = Post.objects.all()
         uid = request.query_params.get('type', None)
