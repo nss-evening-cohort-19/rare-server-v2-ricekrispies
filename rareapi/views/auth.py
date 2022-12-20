@@ -8,7 +8,7 @@ def check_user(request):
     '''Checks to see if User has associated Profile
 
     Method arguments:
-      request -- The full HTTP request object
+    request -- The full HTTP request object
     '''
     uid = request.data['uid']
 
