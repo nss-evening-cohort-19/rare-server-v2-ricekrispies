@@ -47,6 +47,7 @@ class PostView(ViewSet):
         publication_date=request.data["publication_date"],
         content=request.data["content"],
         approved=request.data["approved"],
+        image_url=request.data["image_url"],
         user=rareUser
         )
         serializer = PostSerializer(post)
@@ -64,6 +65,7 @@ class PostView(ViewSet):
         post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.approved = request.data["approved"]
+        post.image_url = request.data["image_url"]
 
         #The below is for when we incorp categories
         # category = Category.objects.get(pk=request.data["category"])
@@ -82,5 +84,5 @@ class PostSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Post
-        fields = ('id', 'user', 'title', 'publication_date', 'content', 'approved')
+        fields = ('id', 'user', 'title', 'publication_date', 'content', 'approved', 'image_url')
         depth = 1
