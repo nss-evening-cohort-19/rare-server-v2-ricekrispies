@@ -1,0 +1,24 @@
+[
+  {
+
+      "model": "rareapi.Comment",
+      "pk": 1,
+      "fields": {
+          "user": 1,
+          "post":1,
+          "created_on": "2022-12-12",
+          "content": "Great Post"
+      }
+  },
+  {
+      "model": "rareapi.Comment",
+      "pk": 2,
+      "fields": {
+        "user": 2,
+        "post":2,
+        "created_on": "2022-06-12",
+        "content": "Okay Post"
+      }
+  }
+
+]
