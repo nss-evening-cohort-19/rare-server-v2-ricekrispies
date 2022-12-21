@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 .vscode
+
+0002_alter_post_image_url.py
