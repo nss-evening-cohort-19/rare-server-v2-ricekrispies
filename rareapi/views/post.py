@@ -1,4 +1,5 @@
 from django.http import HttpResponseServerError
+from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -20,16 +21,20 @@ class PostView(ViewSet):
         return Response(serializer.data)
 
     def list(self, request):
-        permission_classes = [IsAdminUser,]
         """Handle GET requests to get all posts
 
         Returns:
             Response -- JSON serialized list of posts
         """
+        
+        uid = request.META['HTTP_AUTHORIZATION']        
+        rare_user = RareUser.objects.get(uid=uid)
         posts = Post.objects.all()
         uid = request.query_params.get('type', None)
         if uid is not None:
             posts = posts.filter(user_id=uid)
+        if rare_user.is_staff == False:
+            posts = posts.filter(approved=True)
         serializer = PostSerializer(posts, many = True)
         return Response(serializer.data)
 
@@ -87,6 +92,15 @@ class PostView(ViewSet):
         post = Post.objects.get(pk=pk)
         post.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    @action(methods=['put'], detail=True)
+    def change_approved(self, request, pk):
+        post = Post.objects.get(pk=pk)
+        
+        post.approved = not post.approved
+        post.save()
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
