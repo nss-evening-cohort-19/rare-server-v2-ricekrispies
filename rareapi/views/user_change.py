@@ -27,6 +27,8 @@ class UserChangeView(ViewSet):
         )
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+
+
     def destroy(self, request, pk):
         user_change = UserChange.objects.get(pk=pk)
         user_change.delete()
@@ -37,3 +39,4 @@ class UserChangeSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserChange
         fields = ('id', 'admin', 'action', 'second_admin', 'modified_user')
+        depth = 1
