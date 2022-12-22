@@ -25,9 +25,9 @@ class CommentView(ViewSet):
             Response -- JSON serialized list of posts
         """
         comments = Comment.objects.all()
-        uid = request.query_params.get('type', None)
-        if uid is not None:
-            comments = comments.filter(user_id=uid)
+        # uid = request.query_params.get('type', None)
+        # if uid is not None:
+        #     comments = comments.filter(user_id=uid)
         serializer = CommentSerializer(comments, many = True)
         return Response(serializer.data)
 
@@ -37,11 +37,11 @@ class CommentView(ViewSet):
         Returns
             Response -- JSON serialized post instance
         """
-        user = RareUser.objects.get(uid=request.data["user"])
+        user = RareUser.objects.get(pk=request.data["user"])
         post = Post.objects.get(pk=request.data["post"])
 
         comment = Comment.objects.create(
-        created_on=request.data["publication_date"],
+        created_on=request.data["created_on"],
         content=request.data["content"],
         post=post,
         user=user
