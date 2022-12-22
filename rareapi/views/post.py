@@ -79,7 +79,7 @@ class PostView(ViewSet):
         post.publication_date = request.data["publication_date"]
         post.content = request.data["content"]
         post.approved = request.data["approved"]
-        post.image_url = request.data["image_url"]
+        post.image_url = request.data["image_url"],
 
         #The below is for when we incorp categories
         # category = Category.objects.get(pk=request.data["category"])
