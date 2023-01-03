@@ -21,11 +21,11 @@ class UserChangeView(ViewSet):
 
         user_change = UserChange.objects.create(
             action=request.data["action"],
-            admin=RareUser.objects.get(pk=request.data["admin"]),
-            second_admin= RareUser.objects.get(pk=request.data["second_admin"]),
+            admin=RareUser.objects.get(uid=request.data["admin"]),
             modified_user=RareUser.objects.get(pk=request.data["modified_user"])
         )
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        serializer = UserChangeSerializer(user_change)
+        return Response(serializer.data)
 
 
 
